@@ -16,7 +16,6 @@
     "test": "mocha ./test/fast.js ./test/slow.js -b -t 100s -R list"
   },
   "dependencies": {
-    "buffer": "^5.2.1",
     "crypto-js": "^3.1.9-1",
     "querystring": "^0.2.0",
     "url": "^0.11.0"

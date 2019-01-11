@@ -117,7 +117,7 @@ RequestSigner.prototype.prepareRequest = function() {
         headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=utf-8'
 
       if (request.body && !headers['Content-Length'] && !headers['content-length'])
-        headers['Content-Length'] = buffer.Buffer.byteLength(request.body)
+        headers['Content-Length'] = request.body.length
 
       if (this.credentials.sessionToken && !headers['X-Amz-Security-Token'] && !headers['x-amz-security-token'])
         headers['X-Amz-Security-Token'] = this.credentials.sessionToken
