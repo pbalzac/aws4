@@ -1,6 +1,7 @@
 var aws4 = exports,
     url = require('url'),
     querystring = require('querystring'),
+    buffer = require('buffer'),
     crypto = require('crypto-js'),
     lru = require('./lru'),
     credentialsCache = lru(1000)
@@ -116,7 +117,7 @@ RequestSigner.prototype.prepareRequest = function() {
         headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=utf-8'
 
       if (request.body && !headers['Content-Length'] && !headers['content-length'])
-        headers['Content-Length'] = Buffer.byteLength(request.body)
+        headers['Content-Length'] = buffer.Buffer.byteLength(request.body)
 
       if (this.credentials.sessionToken && !headers['X-Amz-Security-Token'] && !headers['x-amz-security-token'])
         headers['X-Amz-Security-Token'] = this.credentials.sessionToken
